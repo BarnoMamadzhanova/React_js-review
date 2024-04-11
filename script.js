@@ -143,9 +143,9 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
-// Destructuring
+// ******************************Destructuring********************************************************
 
-const book = getBook(2);
+const book = getBook(1);
 book;
 // const author = book.author;
 // author;
@@ -157,6 +157,20 @@ console.log(title, author, genres);
 // const primaryGenre = genres[0];
 // const secondaryGenre = genres[1];
 
-const [primaryGenre, secondaryGenre] = genres;
+const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
+// *************************************************************************************************
+// Rest operator: [primaryGenre, secondaryGenre, ...otherGenres] - must be at the End. In another case doesn't make any sence.
+console.log(primaryGenre, secondaryGenre, otherGenres);
 
-console.log(primaryGenre, secondaryGenre);
+const newGenres = [...genres, "epic fantasy"];
+newGenres;
+// **************************************************************************************************
+// Spread operator: [...genres, 'fantasy']; makes one array
+const updatedBook = {
+  ...book,
+  // Adding a new property********************
+  moviePublicationDate: "2001-12-19",
+  //Overwriting an existing property**********
+  pages: 1210,
+};
+updatedBook;
