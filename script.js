@@ -145,12 +145,12 @@ function getBook(id) {
 
 // ******************************Destructuring********************************************************
 
-const book = getBook(1);
+const book = getBook(2);
 book;
 // const author = book.author;
 // author;
 
-const { title, author, pages, publicationDatege, genres, hasMovieAdaptation } =
+const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
   book;
 console.log(title, author, genres);
 
@@ -174,3 +174,22 @@ const updatedBook = {
   pages: 1210,
 };
 updatedBook;
+
+// function getYear(str) {
+//   return str.split("-")[0];
+// }
+
+const getYear = (str) => str.split("-")[0];
+console.log(getYear(publicationDate));
+
+const summary = `${title}, a ${pages}-page long book and published in ${getYear(
+  publicationDate
+)}. The book has ${hasMovieAdaptation ? "" : "not"} been adapted as a movie.`;
+summary;
+
+// const summary = `${title}, a ${pages}-page book, was written by ${author}`;
+// summary;
+
+const pagesRange = pages > 1000 ? "over a thousand" : "less than 1000";
+pagesRange;
+console.log(`The book has ${pagesRange} pages`);
